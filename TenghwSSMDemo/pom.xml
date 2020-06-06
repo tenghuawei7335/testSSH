@@ -12,7 +12,7 @@
   <name>TenghwSSMDemo Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
-  <!--======================================编译环境====================================-->
+  <!--======================================编译123环境====================================-->
   <properties>
     <!-- 指定构建和导出文档时使用的编码 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
