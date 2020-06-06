@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+ <context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
+
+    <!-- redis连接池基本参数配置-->
+<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"
+      p:minIdle="${redis.minIdle}"
+      p:maxIdle="${redis.maxIdle}"
+      p:maxTotal="${redis.maxTotal}"
+      p:maxWaitMillis="${redis.maxWaitMillis}"
+      p:testOnBorrow="${redis.testOnBorrow}"
+      p:testOnReturn="${redis.testOnReturn}"
+      p:blockWhenExhausted="${redis.blockWhenExhausted}"
+      p:testWhileIdle="${redis.testWhileIdle}"
+      p:timeBetweenEvictionRunsMillis="${redis.timeBetweenEvictionRunsMillis}">
+</bean>
+
+    <!--redis集群配置 哨兵模式-->
+    <bean id="sentinelConfiguration" class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
+    <!--哨兵节点监控Redis主节点-->
+        <property name="master">
+            <bean class="org.springframework.data.redis.connection.RedisNode">
+                <property name="name" value="${redis.sentinel.masterName}"></property>
+            </bean>
+        </property>
+    <!--三个哨兵监控-->
+        <property name="sentinels">
+            <set>
+                <bean class="org.springframework.data.redis.connection.RedisNode">
+                    <constructor-arg name="host" value="${redis.sentinel1.host1}"></constructor-arg>
+                    <constructor-arg name="port" value="${redis.sentinel1.port1}"></constructor-arg>
+                </bean>
+                <bean class="org.springframework.data.redis.connection.RedisNode">
+                    <constructor-arg name="host" value="${redis.sentinel2.host2}"></constructor-arg>
+                    <constructor-arg name="port" value="${redis.sentinel2.port2}"></constructor-arg>
+                </bean>
+                <bean class="org.springframework.data.redis.connection.RedisNode">
+                    <constructor-arg name="host" value="${redis.sentinel3.host3}"></constructor-arg>
+                    <constructor-arg name="port" value="${redis.sentinel3.port3}"></constructor-arg>
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+    <!-- redis数据库连接 -->
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:hostName="${redis.host}"
+          p:port="${redis.port}"
+          p:password="${redis.password}"
+          p:database="${redis.dbIndex}">
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
+        <constructor-arg  name="sentinelConfig" ref="sentinelConfiguration"/>
+    </bean>
+
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate" p:connection-factory-ref="jedisConnectionFactory" >
+        <!--以下针对各种数据进行序列化方式的选择-->
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+        <property name="hashKeySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+    </bean>
+<!--&lt;!&ndash;   这个不清楚具体做什么，注释保留把。 缓存管理器&ndash;&gt;-->
+<!--    <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">-->
+<!--        <constructor-arg ref="redisTemplate" />-->
+<!--    </bean>-->
+<!--&lt;!&ndash;    启用缓存注解，否正缓存不会生效&ndash;&gt;-->
+<!--    <cache:annotation-driven cache-manager="cacheManager"/>-->
+</beans>

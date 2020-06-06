@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="TenghwSSMDemo:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b009f97e-ca70-47e5-bfbf-809012a231be" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="TenghwSSMDemo" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="FxmlFile" />
+        <option value="XML File.xm" />
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\maven-3.6.1\localCangku" />
+        <option name="mavenHome" value="D:/maven-3.6.1/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\maven-3.6.1\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="jdk-1.8" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1c5MLX1IECPwHdfg25osxyC5MNM" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpringMVCDemo" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.32057416" />
+    <property name="settings.editor.selected.configurable" value="yiiguxing.plugin.translate" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\TenghwSSMDemo\src\main\webapp\WEB-INF\pages" />
+      <recent name="F:\TenghwSSMDemo\src\main\webapp\WEB-INF" />
+      <recent name="F:\TenghwSSMDemo\src\main\webapp\scripts" />
+      <recent name="F:\TenghwSSMDemo\src\main\webapp" />
+      <recent name="F:\TenghwSSMDemo\src\main\resource" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.company.project.controller.interceptor" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\TenghwSSMDemo\src\main\resource" />
+      <recent name="F:\TenghwSSMDemo\src\main\java" />
+      <recent name="F:\TenghwSSMDemo\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.37">
+    <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.project.MainTest" />
+      <module name="TenghwSSMDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.project.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisBaiseTakes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.project.service.RedisBaiseTakes" />
+      <module name="TenghwSSMDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.project.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WatchTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.zookeeper.WatchTest" />
+      <module name="TenghwSSMDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.zookeeper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SSM-JettyRun" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jetty:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat 8.5.37" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.37" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:\Program Files\Java1.8\jdk1.8.0_141\jre" nameIsGenerated="true">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="TenghwSSMDemo:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_TenghwSSMDemo" />
+        <option name="HTTP_PORT" value="8081" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52193" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="TenghwSSMDemo:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MainTest" />
+      <item itemvalue="Application.RedisBaiseTakes" />
+      <item itemvalue="Application.WatchTest" />
+      <item itemvalue="Maven.SSM-JettyRun" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.37" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.WatchTest" />
+        <item itemvalue="Application.RedisBaiseTakes" />
+        <item itemvalue="Application.MainTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b009f97e-ca70-47e5-bfbf-809012a231be" name="Default Changelist" comment="" />
+      <created>1589813945121</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589813945121</updated>
+      <workItem from="1589813949148" duration="1318000" />
+      <workItem from="1589815300195" duration="13006000" />
+      <workItem from="1589853350749" duration="4578000" />
+      <workItem from="1589858068730" duration="13486000" />
+      <workItem from="1589884537998" duration="4324000" />
+      <workItem from="1589888969729" duration="14995000" />
+      <workItem from="1589940471786" duration="33166000" />
+      <workItem from="1590028424547" duration="9253000" />
+      <workItem from="1590066024003" duration="13628000" />
+      <workItem from="1590125065132" duration="18984000" />
+      <workItem from="1590152435849" duration="911000" />
+      <workItem from="1590161928104" duration="5386000" />
+      <workItem from="1590195729846" duration="4317000" />
+      <workItem from="1590200098685" duration="28190000" />
+      <workItem from="1590307572689" duration="2354000" />
+      <workItem from="1590333477363" duration="8463000" />
+      <workItem from="1590366351236" duration="15120000" />
+      <workItem from="1590383727884" duration="17394000" />
+      <workItem from="1590453542191" duration="27674000" />
+      <workItem from="1590543646269" duration="12157000" />
+      <workItem from="1590630022522" duration="5420000" />
+      <workItem from="1590709978369" duration="8391000" />
+      <workItem from="1590751494057" duration="10825000" />
+      <workItem from="1590768773900" duration="4519000" />
+      <workItem from="1590798609342" duration="10421000" />
+      <workItem from="1590853246110" duration="7691000" />
+      <workItem from="1590897185208" duration="2952000" />
+      <workItem from="1590985895825" duration="121000" />
+      <workItem from="1590986048532" duration="8339000" />
+      <workItem from="1591094187194" duration="6193000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="ZooKeeperConfig">
+    <option name="host" value="127.0.0.1" />
+    <option name="port" value="2181" />
+    <option name="charset" value="UTF-8" />
+    <option name="whitePaths" value="" />
+    <option name="enabled" value="true" />
+  </component>
+</project>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- =================扫描并注入service包下@Service标注的实现类为Bean========= -->
+    <context:component-scan base-package="com.company.project.service"/>
+
+
+    <!-- =================引入外部属性文件================================== -->
+    <!-- PropertyPlaceholderConfigurer引入外部jdbc.properties文件 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="classpath:db.properties">
+    </bean>
+    <!-- =================与上面等价================================== -->
+    <!--    <context:property-placeholder  location="classpath:db.properties" ignore-unresolvable="true"/>-->
+    <!-- ==================END========================================-->
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="${jdbc.driver}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}"
+    >
+    </bean>
+    <!-- ==================END========================================-->
+
+    <bean  id="SqlSessionFactory" class=" org.mybatis.spring.SqlSessionFactoryBean" >
+        <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="com.company.project.pojo"/>
+        <!--        <property name="configLocation" value="classpath*:/mybaties-config.xml"/>-->
+        <!--        <property name="mapperLocations" value="classpath*:**.mapper.*.xml"/>-->
+    </bean>
+    <!-- ==================END========================================-->
+    <!-- 事务管理器配置 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!-- 使用注解定义事务 ，激活事物注解@Transactional-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!-- ==================END========================================-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 指定sql会话工厂 -->
+        <property name="SqlSessionFactoryBeanName" value="SqlSessionFactory"/>
+        <!-- 指定基础包，即自动扫描这个包以及它的子包下的所有映射接口类 -->
+        <property name="basePackage" value="com.company.project.mapper"/>
+    </bean>
+    <!-- ==================END========================================-->
+<!--    配置jdbcTemplate模板-->
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dataSource"/>
+</bean>
+<!--    通过AOP配置提供事务增强，让service包下所有Bean的所有方法拥有事务-->
+    <!-- 配置事务特性  -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 传播行为 -->
+            <!-- REQUIRED:业务方法需要在一个事务中运行,如果方法运行时,已经处于一个事务中,那么加入到该事务中,否则自己创建一个新的事务 -->
+            <!-- SUPPORTS:如果业务方法在事务中被调用,则成为事务中的一部分,如果没有在事务中调用,则在没有事务的环境下执行。  -->
+            <!-- rollback-for:此项配置只要发生异常了便回滚事物，若不配置，只在出现RuntimeException时会回滚 -->
+            <tx:method name="save*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="insert*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="add*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="create*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="delete*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="update*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="call*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="list*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="goto*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+<!--    配置事物切面，哪些类的方法进行事务管理-->
+<!--    proxy-target-class为true:基于类的事物代理，不写或者false基于接口的事物代理模式！-->
+    <aop:config proxy-target-class="false">
+<!--        service包及其子包中任意类任意方法的执行(方法名满足上面的前缀规则!)-->
+        <aop:pointcut id="allManagerMethod" expression="execution(* com.company.project.service..*.*(..))"/>
+<!--        配置切入点表达式和事务通知的对应关系-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod"/>
+    </aop:config>
+</beans>

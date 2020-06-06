@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.thwcompany.ssm</groupId>
+  <artifactId>TenghwSSMDemo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>TenghwSSMDemo Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+  <!--======================================编译环境====================================-->
+  <properties>
+    <!-- 指定构建和导出文档时使用的编码 -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+<!--========================================end======================================-->
+
+  <!--======================================依赖===================================-->
+  <dependencies>
+    <!-- 测试包 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.10</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- servlet、jsp依赖，版本需要和servlet容器的一致 -->
+    <!--要用到HttpServletRequest和HttpServletResponse等对象，这些对象都是要靠这个jar包才能使用的。-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+     <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--解析jsp文件所需要的东西。-->
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.2</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--解析jstl标签所需要的东西。-->
+    <!-- 标签库 -->
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+<!--    jstl-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!-- 下面是mybatis和mybatis与spring整合的jar包 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.4.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+
+    <!-- slf4j 日志门面依赖包 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.0-rc1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.0-rc1</version>
+    </dependency>
+
+    <!-- commons-logging 、log4j -->
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+
+    <!-- mysql数据库的驱动包 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.12</version>
+    </dependency>
+
+    <!--spring jdbc自带数据源，包含了JdbcTemplate对象-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.1.0.RELEASE</version>
+    </dependency>
+
+    <!--DBCP连接池-->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-pool2</artifactId>
+      <version>2.8.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>2.5.0</version>
+    </dependency>
+
+    <!-- C3P0连接池-->
+    <dependency>
+      <groupId>com.mchange</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.5.2</version>
+    </dependency>
+
+    <!--druid连接池-->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>druid</artifactId>
+          <version>1.1.21</version>
+      </dependency>
+
+    <!-- 下面是spring需要的包，包括必备的core、beans、context、aop，与数据库相关的jdbc、tx，同时aop需要用到aspectjweaver包 -->
+<!--    SpringIOC-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>5.0.8.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>5.0.8.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.0.8.RELEASE</version>
+    </dependency>
+<!--    包含支持缓存Cache（ehcache）、JCA、JMX、-->
+<!--    邮件服务（Java Mail、COS Mail）、任务计划Scheduling（Timer、Quartz）方面的类。-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>5.0.8.RELEASE</version>
+    </dependency>
+
+    <!--aop-->
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>5.0.8.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.1</version>
+    </dependency>
+
+<!--项目中用到的一些表达式，比如正则表达式等等。-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>5.0.8.RELEASE</version>
+    </dependency>
+
+    <!--tx事务管理-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>5.1.0.RELEASE</version>
+    </dependency>
+
+    <!-- springMVC需要的jar包 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>5.0.8.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.0.8.RELEASE</version>
+    </dependency>
+
+    <!-- GSON-->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
+    </dependency>
+
+    <!-- JSON-->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20140107</version>
+    </dependency>
+
+
+    <!-- 使用json需要用到的jar包 -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.9.7</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.9.7</version>
+    </dependency>
+    <!--支持ajax传到后台json格式数据-转换为类对象ObjeectMapper等-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.7</version>
+    </dependency>
+
+<!--    解析xml-->
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xmlParserAPIs</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xercesImpl</artifactId>
+      <version>2.9.1</version>
+    </dependency>
+
+    <!-- 使用poi进行导入导出excel -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>3.10-FINAL</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.10-FINAL</version>
+    </dependency>
+
+    <!--    使用jxls导出Excel报表-->
+    <dependency>
+      <groupId>net.sf.jxls</groupId>
+      <artifactId>jxls-core</artifactId>
+      <version>1.0.5</version>
+    </dependency>
+
+    <!-- 文件上传使用的jar包 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.3</version>
+    </dependency>
+
+   <!--读取各种配置文件,主要用于监听事件-->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.5</version>
+    </dependency>
+
+   <!-- pageHelper分页-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.1.11</version>
+    </dependency>
+
+<!--    ORM(Object Relational Mapping)，即对象关系映射。-->
+<!--    将关系数据库中表的数据映射成为对象，-->
+<!--    以对象的形式展现，这样开发人员就可以把对数据库的操作转化为对这些对象的操作-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>5.2.6.RELEASE</version>
+    </dependency>
+
+<!--    StringUtils,ObjectUtils,EqualsBuilder/HashCodeBuilder等工具类-->
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.5</version>
+    </dependency>
+
+    <!-- springmvc返回注解依赖包，实现@ResponseBody返回map或list的json转换 -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency>
+
+    <!-- JsonUtil提供的json处理 -->
+    <dependency>
+      <groupId>net.sf.flexjson</groupId>
+      <artifactId>flexjson</artifactId>
+      <version>2.1</version>
+    </dependency>
+    <!-- redis  cache缓存 -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-redis</artifactId>
+      <version>2.3.0.RELEASE</version>
+    </dependency>
+    <!-- jedis客户端 -->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>3.3.0</version>
+    </dependency>
+    <!-- zookeeper -->
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>zookeeper</artifactId>
+      <version>3.3.1</version>
+    </dependency>
+
+  </dependencies>
+  <!--========================================end======================================-->
+
+  <!--======================================插件===================================-->
+  <build>
+    <finalName>TenghwSSMDemo</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+
+        <!-- jetty插件 -->
+        <plugin>
+          <groupId>org.mortbay.jetty</groupId>
+          <artifactId>maven-jetty-plugin</artifactId>
+          <version>6.1.5</version>
+          <configuration>
+            <webAppSourceDirectory>/</webAppSourceDirectory>
+            <scanIntervalSeconds>10</scanIntervalSeconds>
+            <contextPath>/</contextPath>
+            <connectors>
+              <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                <port>8080</port>
+              </connector>
+            </connectors>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <resources>
+      <!-- 该包下编译之后包含xml，txt,properties -->
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+        <filtering>true</filtering>
+      </resource>
+      <!-- 该包下编译之后包含xml和properties -->
+      <resource>
+        <directory>src/main/resource</directory>
+        <includes>
+          <include>*.xml</include>
+          <include>*.properties</include>
+          <include>*.json</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <!-- 该包下编译之后包含webapp下面所有 -->
+        <directory>src/main</directory>
+        <includes>
+          <include>webapp/**/*.jsp</include>
+          <include>webapp/**/*.xml</include>
+          <include>webapp/**/*</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+  </build>
+  <!--========================================end======================================-->
+
+</project>
